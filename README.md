@@ -1,0 +1,1 @@
+# price_tags_auto_berso
