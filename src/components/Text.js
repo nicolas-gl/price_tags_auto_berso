@@ -1,45 +1,66 @@
-import {useState, useEffect} from 'react'
+import {useState, useLayoutEffect} from 'react'
 import React from 'react'
 
 
-export default function Text() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [item, setItem] = useState([]);
-  
-    // Примечание: пустой массив зависимостей [] означает, что
-    // этот useEffect будет запущен один раз
-    // аналогично componentDidMount()
-    useEffect(() => {
-      fetch("http://127.0.0.1:8000/articles/01_0111")
-        .then(res => res.json())
-        .then(
-          (result) => {
-            setIsLoaded(true);
-            setItem(result);
-          },
-          // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-          // чтобы не перехватывать исключения из ошибок в самих компонентах.
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        )
-    }, [])
-  
-    if (error) {
-      return <div>Ошибка: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Загрузка...</div>;
+export default function Text(props) {
+
+  const [request, setRequest] = useState("empty");
+  const [item, setItem] = useState();
+  const [error, setError] = useState();
+
+  useLayoutEffect(() => { if (props.isSelected) {
+    setRequest("loading")
+    fetch(`http://127.0.0.1:8000/articles/${props.article}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setRequest("ok")
+          setItem(result);
+        },
+        (error) => {
+          setRequest("error");
+          setError(error);
+        }
+      )
     } else {
-      return (
-        <ul>
-
-            <li key={item.article_id}>
-              {item.article_id} {item.title}
-            </li>
-
-        </ul>
-      );
+      setRequest("empty");
+      setItem();
+      setError();
     }
+  }, [props.isSelected, props.article])
+
+
+  if (request === "empty") {
+    return <div></div>
+  } else if (request === "loading") {
+    return <div>Loading...</div>;
+  } else if (request === "error") {
+    return <div>Ошибка: {error.message}</div>;
+  } else if (request === "ok") {
+    return (
+      <ul>
+
+        <li key={item.title}>
+          {item.title}
+        </li>
+
+        <li key={item.material}>
+          {item.material} 
+        </li>
+
+        <li key={item.period}>
+          {item.period} 
+        </li>
+
+        <li key={item.price}>
+          {item.price} 
+        </li>
+
+        <li key={item.article_id}>
+          {item.article_id} 
+        </li>
+
+      </ul>
+    );
   }
+}
