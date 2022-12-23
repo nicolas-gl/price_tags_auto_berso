@@ -10,7 +10,7 @@ export default function Text(props) {
 
   useLayoutEffect(() => { if (props.isSelected) {
     setRequest("loading")
-    fetch(`http://194.61.3.148:8000/articles/${props.article}`)
+    fetch(`https://pricetags.tech/articles/${props.article}`)
       .then(res => res.json())
       .then(
         (result) => {
