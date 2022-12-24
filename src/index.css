@@ -2,7 +2,8 @@
   button {
     display: none;
   }
-  .tag {
+  /* .tag {
     outline: none;
-  }
+  } */
 }
+/*  look at Tag.Module.scss also */

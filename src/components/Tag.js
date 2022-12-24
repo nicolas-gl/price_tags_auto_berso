@@ -39,10 +39,7 @@ export default function Tag() {
     <div>
       <div className={styles.tag}>
         
-        {/* <p contentEditable=""><Text ref='2'/></p> */}
-
         <Text isSelected={isSelected} article={article}/>
-
         
         <button className={styles["push-btn"]} onClick={changePopupDisplay} style={{ display:`${pushBtn}` }}> Push </button>
         <button className={styles["reset-btn"]} onClick={resetTag} style={{ display:`${resetBtn}` }}> X </button>

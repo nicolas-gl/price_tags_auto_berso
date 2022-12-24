@@ -30,6 +30,9 @@ export default function Text(props) {
   }, [props.isSelected, props.article])
 
 
+  // let theList = [item.title, item.material]
+
+
   if (request === "empty") {
     return <div></div>
   } else if (request === "loading") {
@@ -38,27 +41,29 @@ export default function Text(props) {
     return <div>Ошибка: {error.message}</div>;
   } else if (request === "ok") {
     return (
-      <ul>
+      <ul >
 
-        <li key={item.title}>
+        <li key={item.title} contentEditable>
           {item.title}
         </li>
 
-        <li key={item.material}>
+        <li key={item.material} contentEditable>
           {item.material} 
         </li>
 
-        <li key={item.period}>
+        <li key={item.period} contentEditable>
           {item.period} 
         </li>
 
-        <li key={item.price}>
+        <li key={item.price} contentEditable>
           {item.price} 
         </li>
 
-        <li key={item.article_id}>
+        <li key={item.article_id} contentEditable>
           {item.article_id} 
         </li>
+        
+        {/* { [...Array(theList)].map((item, value) => <li key={item} >{value}</li>  ) } */}
 
       </ul>
     );
