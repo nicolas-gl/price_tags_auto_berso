@@ -1,5 +1,6 @@
 import {useState, useLayoutEffect} from 'react'
 import React from 'react'
+import styles from './Text.module.scss'
 
 
 export default function Text(props) {
@@ -41,31 +42,33 @@ export default function Text(props) {
     return <div>Ошибка: {error.message}</div>;
   } else if (request === "ok") {
     return (
-      <ul >
+      <div className={styles["text-form"]}>
+        <ul className={styles.text}>
 
-        <li key={item.title} contentEditable>
-          {item.title}
-        </li>
+          <li className={styles.title} key={styles.title} contentEditable>
+            {item.title}
+          </li>
 
-        <li key={item.material} contentEditable>
-          {item.material} 
-        </li>
+          <li className={styles.material} key={styles.material} contentEditable>
+            {item.material[0].toUpperCase() + item.material.slice(1)}
+          </li>
 
-        <li key={item.period} contentEditable>
-          {item.period} 
-        </li>
+          <li className={styles.period} key={styles.period} contentEditable>
+            {item.period} 
+          </li>
 
-        <li key={item.price} contentEditable>
-          {item.price} 
-        </li>
+          <li className={styles.price} key={styles.price} contentEditable>
+            Цена: {item.price} руб.
+          </li>
 
-        <li key={item.article_id} contentEditable>
-          {item.article_id} 
-        </li>
-        
-        {/* { [...Array(theList)].map((item, value) => <li key={item} >{value}</li>  ) } */}
+          <li className={styles.article_id} key={styles.article_id} contentEditable>
+            Арт. {item.article_id} 
+          </li>
+          
+          {/* { [...Array(theList)].map((item, value) => <li key={item} >{value}</li>  ) } */}
 
-      </ul>
+        </ul>
+      </div>
     );
   }
 }

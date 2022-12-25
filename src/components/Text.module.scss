@@ -1,0 +1,41 @@
+.text-form{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.text{
+  font-family: 'PT Serif', Georgia, serif;
+  font-size: 17.5px;
+  margin-left: 12px;
+  margin-right: 20px;
+  
+    .title{
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .material, .period{
+      font-style: italic;
+    }
+
+    .price{
+      font-size: 16px;
+      font-weight: bold;
+      margin: 4px 0 0 6px;
+      flex-grow: 1;
+    }
+
+    .article_id{
+      font-size: 14px;
+      margin: 4px 0 0 12px;
+    }
+}
+
+// .text{
+
+
+// }
