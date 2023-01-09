@@ -30,10 +30,7 @@ export default function Text(props) {
     }
   }, [props.isSelected, props.article])
 
-
-  // let theList = [item.title, item.material]
-
-
+  
   if (request === "empty") {
     return <div></div>
   } else if (request === "loading") {
@@ -65,8 +62,6 @@ export default function Text(props) {
             Арт. {item.article_id} 
           </li>
           
-          {/* { [...Array(theList)].map((item, value) => <li key={item} >{value}</li>  ) } */}
-
         </ul>
       </div>
     );

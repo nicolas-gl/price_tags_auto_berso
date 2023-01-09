@@ -44,23 +44,16 @@ export default function Tag() {
         <button className={styles["push-btn"]} onClick={changePopupDisplay} style={{ display:`${pushBtn}` }}> Push </button>
         <button className={styles["reset-btn"]} onClick={resetTag} style={{ display:`${resetBtn}` }}> X </button>
         <div className={styles.popup} style={{ display:`${popap}` }}>
-          <form className={styles["form-popup"]}>
-          {/* action={okTag} */}
+          <div className={styles["form-popup"]}>
 
-
-
-            <input autoComplete="off" type="fdtext" placeholder="Артикул" onChange={e => setArticle(e.target.value)} required/>
-
+            <input autoComplete="off" type="text" placeholder="Артикул" onChange={e => setArticle(e.target.value)} onKeyDown={e => {e.key === 'Enter' && okTag()}} required/>
 
             <div className={styles['bool-buttons']}>
               <button className={styles.btn} type="reset" onClick={okTag}> OK </button> 
-                        {/* выше type="reset" сменить на "submit" */}
               <button className={`${styles.btn} ${styles.cancel}`} type="reset" onClick={changePopupDisplay} > Cancel </button>
             </div>
 
-
-
-          </form>
+          </div>
         </div> 
       </div> 
     </div>
