@@ -49,8 +49,12 @@ export default function Tag() {
             <input autoComplete="off" type="text" placeholder="Артикул" onChange={e => setArticle(e.target.value)} onKeyDown={e => {e.key === 'Enter' && okTag()}} required/>
 
             <div className={styles['bool-buttons']}>
-              <button className={styles.btn} type="reset" onClick={okTag}> OK </button> 
-              <button className={`${styles.btn} ${styles.cancel}`} type="reset" onClick={changePopupDisplay} > Cancel </button>
+              <button className={styles.btn} type="reset" onClick={okTag}> 
+                <p className={styles['ok-text']}> OK </p> 
+              </button> 
+              <button className={`${styles.btn} ${styles.cancel}`} type="reset" onClick={changePopupDisplay} > 
+                <p className={styles['cancel-text']}> Cancel </p> 
+              </button>
             </div>
 
           </div>
