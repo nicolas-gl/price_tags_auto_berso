@@ -47,7 +47,7 @@ export default function Text(props) {
           </li>
 
           <li className={styles.material} key={styles.material} contentEditable>
-            {item.material[0].toUpperCase() + item.material.slice(1)}
+            {( item.material[0] ? item.material[0].toUpperCase() + item.material.slice(1) : '' ) }
           </li>
 
           <li className={styles.period} key={styles.period} contentEditable>
