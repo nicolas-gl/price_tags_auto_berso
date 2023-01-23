@@ -1,9 +1,0 @@
-@media print {
-  button {
-    display: none;
-  }
-  /* .tag {
-    outline: none;
-  } */
-}
-/*  look at Tag.Module.scss also */
