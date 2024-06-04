@@ -12,7 +12,7 @@ export default function Text(props) {
   useLayoutEffect(() => {
     if (props.isSelected) {
       setRequest("loading")
-      fetch(`https://bersopricetags.shop/articles/${props.article}`)
+      fetch(`https://24berso.ru/articles/${props.article}`)
         .then(res => res.json())
         .then(
           (result) => {
